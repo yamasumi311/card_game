@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from card_game.functions import play_one_round
+from functions import play_one_round
 
 
 class Test_play_one_round(TestCase):

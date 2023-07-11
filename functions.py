@@ -40,13 +40,18 @@ def create_deck(maisu, whoes):
         whoes.append(make_cards())
 
 
-def play_one_round(my_cards, co_cards, my_score, co_score, mc, cc):
-    compute_score_from_cards()
-    return [],[],0,0
+def play_one_round(my_cards, co_cards, my_score, co_score, my_choice, co_choice):
+    my_card, my_new_hand = pull_card_from_hand(my_cards, my_choice)
+    co_card, co_new_hand = pull_card_from_hand(co_cards, co_choice)
+    my_score, co_score = compute_score_from_cards(my_card, co_card, my_score, co_score)
+    return my_new_hand, co_new_hand, my_score, co_score
+
 
 
 def pull_card_from_hand(cards, index):
-    pass
+    card = cards[index]
+    del cards[index]
+    return card, cards
 
 def compute_score_from_cards(card1, card2, score1, score2):
     result = find_card_order(card1, card2)
